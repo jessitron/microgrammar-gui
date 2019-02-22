@@ -8,7 +8,7 @@
     "build": "tsc --project . && webpack",
     "start": "tsc --project . && webpack && node server.js",
     "lint": "tslint --project . --fix",
-    "clean": "rimraf  \"**/*.{d.ts{,.map},js{,.map}}\" "
+    "clean": "rimraf  server.js server.js.map \"app/**/*.js{,.map}}\" "
   },
   "dependencies": {
     "@atomist/microgrammar": "^1.2.0-master.20190221030950",
