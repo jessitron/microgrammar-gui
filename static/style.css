@@ -1,0 +1,137 @@
+.gooeyOutside {
+  display: flex;
+  flex-direction: column;
+  background-color: #101821;
+  margin-top: 6em;
+}
+.parserChoice div {
+  background-color: blanchedalmond;
+  color: red;
+}
+
+.parserChoice input {
+  border: solid 3px black;
+  display: inline;
+}
+
+.essayForm {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  padding: 20px;
+  width: 95%;
+}
+.essayForm form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 50px;
+  color: white;
+  margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    width: 95%;
+    max-width: 1000px;
+    border-radius: 3px;
+}
+.essayForm form * {
+  margin-right: 10px;
+      
+}
+.essayForm h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.preview {
+  padding: 20px;
+}
+.react-json-view {
+  padding: 1em;
+}
+.essayForm input {
+  display: flex;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    font-size: 16px;
+}
+.react-codemirror2 {
+  width: 100%;
+}
+.talkOutLoud {
+    align-self: flex-end;
+    width: 8%;
+    padding: 0.5em;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: -5px 5px 5px darkgoldenrod;
+    margin: 1em;
+    display: none; /* The debug window is not useful at the moment */
+}
+
+/* the left of the screen: accept entry of code or display the code */
+.code-view {
+   width: 50%;
+}
+
+.microgrammarInput {
+  min-height: 1.5em;
+}
+
+.parseThisInput {
+  min-height: 10em;
+  flex: 10;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+.cm-highlight1 {
+  background-color: darkgoldenrod;
+  color: red;
+}
+
+.cm-match {
+  text-decoration: underline overline darkgoldenrod;
+}
+
+.top-error-display {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+#microgrammarInput {
+  width: 100%;
+  border: solid 1px white;
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+#pathExpressionInput {
+  width: 100%
+}
+
+.error-display {
+  position: relative;
+  background: pink;
+  color:black;
+    margin-top: 10px;
+    border: 1px solid deeppink;
+}
+
+.error-display::before {
+  content: "";
+  position: absolute;
+    top: -.4em; left: 1em;
+    padding: .35em;
+    background: inherit;
+    border: inherit;
+    border-right: 0;
+    border-bottom: 0;
+    transform: rotate(45deg);
+}
