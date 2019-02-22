@@ -1,4 +1,4 @@
-import { AppBar, Typography } from "@material-ui/core/";
+import { AppBar, Typography } from "@material-ui/core";
 import * as _ from "lodash";
 import React from "react";
 import {
@@ -6,12 +6,12 @@ import {
   isErrorResponse, ParseResponse, ParserInputProps, TreeChoices, TreeParseGUIState,
 } from "../TreeParseGUIState";
 import { highlightFromAst, HighlightFunction } from "./codeSubmission/highlightCode";
-import { ParserInput } from "./codeSubmission/ParserInput";
 import { ErrorDisplay } from "./ErrorDisplay";
 import { Tree } from "./jsonDisplay/tree";
 import { availableTreeChoices, effectiveTreeChoice, howToDisplayTree, TreeChoice } from "./jsonDisplay/TreeChoice";
 import * as MicrogrammarInput from "./MicrogrammarInput";
 import { TalkOutLoud } from "./TalkOutLoud";
+import { ParserInput } from "./codeSubmission/ParserInput";
 
 /* the main page for the index route of this app */
 export class TreeParseGUI extends React.Component<{},

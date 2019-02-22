@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@material-ui/core";
 import React from "react";
-import { ErrorResponse, ParserInputProps, PathExpressionByParserKind } from "../../TreeParseGUIState";
+import { ErrorResponse, ParserInputProps } from "../../TreeParseGUIState";
 import { MicrogrammarInput, MicrogrammarInputProps } from "../MicrogrammarInput";
 import { PathExpressionInput } from "../PathExpressionInput";
 import { CodeDisplay } from "./codeDisplay";
@@ -27,22 +27,10 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
     this.props.updateFn({ code });
   }
 
-  public handleParserChoiceChange = (event, parserChoice) => {
-    this.props.updateFn({ parserKind: parserChoice });
-  }
-
   public handleMicrogrammarChange = (microgrammarInput: MicrogrammarInputProps) => {
     return this.props.updateFn({
       microgrammarInput,
     });
-  }
-
-  public handlePathExpressionChange = (pathExpression: string) => {
-    const pxe: Partial<PathExpressionByParserKind> = {};
-    pxe[this.props.parserInput.parserKind] = pathExpression;
-    return this.props.updateFn({
-      pathExpression: pxe,
-    } as any);
   }
 
   public handleSubmit = (event) => {
@@ -71,23 +59,10 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
             style={{ backgroundColor: "#172330" }}
             onSubmit={this.handleSubmit}
           >
-            <FormControl>
-              <FormLabel component="legend">Choose A Parser</FormLabel>
-              <RadioGroup
-                key="parser-choice"
-                value={this.props.parserInput.parserKind}
-                onChange={this.handleParserChoiceChange}>
-                {this.radioInputs("parserChoice", availableParsers)}
-              </RadioGroup>
-            </FormControl>
-            <MicrogrammarInput parserKind={this.props.parserInput.parserKind}
+            <MicrogrammarInput
               microgrammarInputProps={this.props.parserInput.microgrammarInput}
               handleChange={this.handleMicrogrammarChange}
               errorResponse={this.props.errorResponse} />
-            <PathExpressionInput
-              pathExpression={this.props.parserInput.pathExpression[
-                this.props.parserInput.parserKind]}
-              handlePathExpressionChange={this.handlePathExpressionChange} />
             Parse This:
             <CodeDisplay
               key="parseThisInput"

@@ -56,7 +56,7 @@ export function TreeChoice(props: {
     ], props.availableChoices);
 
     return <FormControl>
-        <FormLabel component="legend">Choose A Parser</FormLabel>
+        <FormLabel>Choose A Tree</FormLabel>
         <RadioGroup
             key="tree-display-choice"
             value={props.treeToDisplay}

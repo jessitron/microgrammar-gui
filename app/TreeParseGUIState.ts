@@ -8,12 +8,10 @@ export interface MicrogrammarParserSpec {
 // server interface
 export interface DataToParse {
     code: string;
-    parser: ParserSpec;
+    parser: MicrogrammarParserSpec;
 }
 
 export type AST = any[];
-
-export type PathExpressionByParserKind = { [K in ParserKind]: string };
 
 export interface ParserInputProps {
     microgrammarInput: MicrogrammarInputProps;
