@@ -40,7 +40,7 @@ export interface ErrorResponse {
     };
 }
 
-export type KnownErrorLocation = "path expression" | "code parse" | "microgrammar terms";
+export type KnownErrorLocation = "code parse" | "microgrammar terms" | "microgrammar phrase";
 
 export type ParseResponse = { ast: AST } | ErrorResponse;
 

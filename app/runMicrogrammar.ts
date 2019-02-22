@@ -12,10 +12,16 @@ export function runMicrogrammar(params: {
     try {
         mg = microgrammar({ phrase });
     } catch (e) {
+        console.log("Failed to parse microgrammar: " + e.message);
         return {
-            error: e,
+            error: {
+                message: e.message,
+                complainAbout: "microgrammar phrase",
+                // todo: provide the tree
+            },
         };
     }
+    console.log("Microgrammar has been parsed.");
 
     const r = (mg as Microgrammar<any>).matchReportIterator(parseThis);
 
