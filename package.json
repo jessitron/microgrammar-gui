@@ -9,7 +9,8 @@
     "compile": "tsc --project .",
     "build": "tsc --project . && webpack",
     "start": "tsc --project . && webpack && node server.js",
-    "lint": "tslint --project . --fix"
+    "lint": "tslint --project . --fix",
+    "clean": "rimraf  \"**/*.{d.ts{,.map},js{,.map}}\" "
   },
   "dependencies": {
     "@atomist/microgrammar": "^1.2.0-master.20190221030950",
@@ -31,6 +32,7 @@
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.7",
     "css-loader": "^2.1.0",
+    "rimraf": "^2.6.3",
     "tslint": "^5.12.1",
     "typescript": "^3.2.2",
     "webpack": "^4.28.3",
