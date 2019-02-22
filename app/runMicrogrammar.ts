@@ -29,5 +29,6 @@ export function runMicrogrammar(params: {
 
     return {
         ast: allMatches.map((mr) => mr.toParseTree()),
+        valueStructure: allMatches.map((mr) => mr.toValueStructure()),
     };
 }

@@ -10,8 +10,31 @@ export interface DataToParse {
     code: string;
     parser: MicrogrammarParserSpec;
 }
+export interface TreeNodeCompatible {
 
-export type AST = any[];
+    /**
+     * Name of the node, available in path expressions
+     */
+    readonly $name: string;
+
+    /**
+     * Children of the node if it's a non-terminal
+     */
+    $children?: TreeNodeCompatible[];
+
+    /**
+     * String represented by this tree node
+     */
+    $value: string;
+
+    /**
+     * Offset from 0 in the file
+     */
+    readonly $offset: number;
+
+}
+
+export type AST = TreeNodeCompatible[];
 
 export interface ParserInputProps {
     microgrammarInput: MicrogrammarInputProps;
@@ -21,6 +44,7 @@ export interface ParserInputProps {
 export interface TreeParseGUIState {
     displayCode: boolean;
     ast: AST;
+    valueStructure: any[];
     error?: ErrorResponse;
     parserInput: ParserInputProps;
     chosenTree: TreeChoices;
@@ -28,8 +52,8 @@ export interface TreeParseGUIState {
 
 export enum TreeChoices {
     ast = "parseThis",
-    // goal: microgrammarTerms = "mgTerms",
     parsingError = "error",
+    valueStructure = "valueStructure",
 }
 
 export interface ErrorResponse {
@@ -42,7 +66,10 @@ export interface ErrorResponse {
 
 export type KnownErrorLocation = "code parse" | "microgrammar terms" | "microgrammar phrase";
 
-export type ParseResponse = { ast: AST } | ErrorResponse;
+export type ParseResponse = {
+    ast: AST,
+    valueStructure: any[],
+} | ErrorResponse;
 
 export function isErrorResponse(pr: ParseResponse): pr is ErrorResponse {
     const maybe = pr as ErrorResponse;

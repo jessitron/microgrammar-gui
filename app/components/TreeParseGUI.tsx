@@ -28,6 +28,7 @@ export class TreeParseGUI extends React.Component<{},
       },
       ast: [],
       chosenTree: TreeChoices.ast,
+      valueStructure: [],
     };
   }
 
@@ -44,7 +45,7 @@ export class TreeParseGUI extends React.Component<{},
     if (isErrorResponse(parseResponse)) {
       return this.setState({ ast: [], error: parseResponse });
     }
-    return this.setState({ ast: parseResponse.ast, error: undefined });
+    return this.setState({ ast: parseResponse.ast, valueStructure: parseResponse.valueStructure, error: undefined });
   }, 500);
 
   public handleParserInputChange = async (data: ParserInputProps) => {

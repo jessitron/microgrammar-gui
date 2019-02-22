@@ -9,6 +9,10 @@ export interface HowToDisplay {
     theme: ThemeKeys;
 }
 
+/**
+ * If you had chosen "AST" for instance, but you now have an error and AST is not available
+ * this will pick a choice that IS available.
+ */
 export function effectiveTreeChoice(tpgs: TreeParseGUIState) {
     const available = availableTreeChoices(tpgs);
     if (available.includes(tpgs.chosenTree)) {
@@ -29,11 +33,16 @@ export function howToDisplayTree(tpgs: TreeParseGUIState, tc: TreeChoices): HowT
                 treeToRender: tpgs.error.error.tree,
                 theme: "apathy:inverted",
             };
+        case TreeChoices.valueStructure:
+            return {
+                treeToRender: tpgs.valueStructure,
+                theme: "bright",
+            };
     }
 }
 
 export function availableTreeChoices(tpgs: TreeParseGUIState): TreeChoices[] {
-    const available = [TreeChoices.ast];
+    const available = [TreeChoices.ast, TreeChoices.valueStructure];
     if (_.has(tpgs, "error.error.tree")) {
         available.push(TreeChoices.parsingError);
     }
@@ -53,6 +62,7 @@ export function TreeChoice(props: {
     const radioOptions = disableUnavailable([
         { value: TreeChoices.ast, label: "Parsed" },
         { value: TreeChoices.parsingError, label: "Parsing Error" },
+        { value: TreeChoices.valueStructure, label: "Value Structure" },
     ], props.availableChoices);
 
     return <FormControl>
