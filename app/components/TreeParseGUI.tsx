@@ -84,9 +84,8 @@ export class TreeParseGUI extends React.Component<{},
         <AppBar color="secondary" style={this.styles.header}>
           <Typography
             variant="title"
-
           >
-            Parse My Code!
+            Microgrammar Explorer
           </Typography>
           <img src="https://atomist.com/img/Atomist-Logo-White-Horiz.png" style={{ width: "15%", height: "50%" }}></img>
         </AppBar>
