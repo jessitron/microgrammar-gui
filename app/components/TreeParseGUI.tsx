@@ -1,17 +1,18 @@
 import { AppBar, Typography } from "@material-ui/core";
 import * as _ from "lodash";
 import React from "react";
+import { runMicrogrammar } from "../runMicrogrammar";
 import {
   DataToParse,
   isErrorResponse, ParseResponse, ParserInputProps, TreeChoices, TreeParseGUIState,
 } from "../TreeParseGUIState";
 import { highlightFromAst, HighlightFunction } from "./codeSubmission/highlightCode";
+import { ParserInput } from "./codeSubmission/ParserInput";
 import { ErrorDisplay } from "./ErrorDisplay";
 import { Tree } from "./jsonDisplay/tree";
 import { availableTreeChoices, effectiveTreeChoice, howToDisplayTree, TreeChoice } from "./jsonDisplay/TreeChoice";
 import * as MicrogrammarInput from "./MicrogrammarInput";
 import { TalkOutLoud } from "./TalkOutLoud";
-import { ParserInput } from "./codeSubmission/ParserInput";
 
 /* the main page for the index route of this app */
 export class TreeParseGUI extends React.Component<{},
@@ -115,6 +116,11 @@ export class TreeParseGUI extends React.Component<{},
 }
 
 async function getTree(dataToParse: DataToParse): Promise<ParseResponse> {
-  // TODO: implement microgrammar call.
-  return undefined;
+  return runMicrogrammar(
+    {
+      parseThis: dataToParse.code,
+      phrase: dataToParse.parser.microgrammarString,
+      termDefinitionJS: dataToParse.parser.terms,
+    },
+  );
 }

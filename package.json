@@ -11,7 +11,7 @@
     "clean": "rimraf  server.js server.js.map \"app/**/*.js{,.map}}\" "
   },
   "dependencies": {
-    "@atomist/microgrammar": "^1.2.0-master.20190221030950",
+    "@atomist/microgrammar": "^1.2.0-matchReportIterator.20190222200743",
     "@material-ui/core": "^3.9.2",
     "codemirror": "^5.42.2",
     "express": "^4.16.3",
