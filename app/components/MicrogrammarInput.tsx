@@ -62,9 +62,11 @@ export interface MicrogrammarInputProps {
 
 export const init: MicrogrammarInputProps = {
     microgrammarString: "<${first}><${second}>",
-    terms: `{
-    first: /[a-zA-Z0-9]+/,
-    second: /[a-zA-Z0-9]+/
+    terms: `function (mg) {
+    return {
+        first: /[a-zA-Z0-9]+/,
+        second: /[a-z0-9]+/
+    }
 }`,
 };
 

@@ -1,4 +1,5 @@
-import { Grammar, microgrammar, Microgrammar } from "@atomist/microgrammar";
+import * as mgModule from "@atomist/microgrammar";
+import { MicrogrammarDefinition } from "@atomist/microgrammar";
 import { ParseResponse } from "./TreeParseGUIState";
 
 export function runMicrogrammar(params: {
@@ -7,10 +8,25 @@ export function runMicrogrammar(params: {
     termDefinitionJS: string,
 }): ParseResponse {
 
-    const { phrase, parseThis } = params;
-    let mg: Grammar<any>;
+    const { phrase, parseThis, termDefinitionJS } = params;
+
+    let terms: (mg) => mgModule.TermsDefinition<any>;
     try {
-        mg = microgrammar({ phrase });
+        terms = Function(`"use strict";return (${termDefinitionJS})`)()(mgModule);
+    } catch (e) {
+        console.log("Failed to parse terms: " + e.message);
+        return {
+            error: {
+                message: e.message,
+                complainAbout: "microgrammar terms",
+            },
+        };
+    }
+    console.log("Terms have been parsed.");
+
+    let mg: mgModule.Grammar<any>;
+    try {
+        mg = mgModule.microgrammar({ phrase, terms });
     } catch (e) {
         console.log("Failed to parse microgrammar: " + e.message);
         return {
@@ -23,7 +39,7 @@ export function runMicrogrammar(params: {
     }
     console.log("Microgrammar has been parsed.");
 
-    const r = (mg as Microgrammar<any>).matchReportIterator(parseThis);
+    const r = (mg as mgModule.Microgrammar<any>).matchReportIterator(parseThis);
 
     const allMatches = Array.from(r);
 
