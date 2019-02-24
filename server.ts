@@ -1,5 +1,12 @@
 // server.js
 
+/**
+ * This project is completely static.
+ * This server.ts is handy for serving the files locally, but really, we can serve it from wherever.
+ * Atomist, please upload this to s3
+ * ^ this correlates with a PushTest in microgrammar-explorer-sdm
+ */
+
 // init project
 import express from "express";
 import { AddressInfo } from "net";
