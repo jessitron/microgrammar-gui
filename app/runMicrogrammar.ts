@@ -1,5 +1,4 @@
 import * as mgModule from "@atomist/microgrammar";
-import { MicrogrammarDefinition } from "@atomist/microgrammar";
 import { ParseResponse } from "./TreeParseGUIState";
 
 export function runMicrogrammar(params: {
@@ -39,12 +38,15 @@ export function runMicrogrammar(params: {
     }
     console.log("Microgrammar has been parsed.");
 
-    const r = (mg as mgModule.Microgrammar<any>).matchReportIterator(parseThis);
+    const r = (mg as mgModule.Microgrammar<any>).perfectMatch(parseThis);
 
-    const allMatches = Array.from(r);
+    const allMatches = Array.from([r]);
 
     return {
-        ast: allMatches.map((mr) => mr.toParseTree()),
-        valueStructure: allMatches.map((mr) => mr.toValueStructure()),
+        ast: allMatches.map((mr) => mgModule.isSuccessfulMatchReport(mr) ?
+            mr.toParseTree() : mr.toExplanationTree(),
+        ),
+        valueStructure: allMatches.map((mr) =>
+            mgModule.isSuccessfulMatchReport(mr) ? mr.toValueStructure() : undefined),
     };
 }
