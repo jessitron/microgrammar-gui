@@ -11,5 +11,6 @@
         },
         "**/*.d.ts.map": true,
         "**/*.js.map": true
-    }
+    },
+    "workbench.colorTheme": "Solarized Dark"
 }
