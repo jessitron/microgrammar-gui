@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@atomist/microgrammar": "^1.2.0",
-    "codemirror": "^5.42.2",
+    "codemirror": "^5.45.0",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-codemirror2": "^5.1.0",

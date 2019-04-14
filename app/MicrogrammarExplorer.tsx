@@ -7,3 +7,5 @@ export const MicrogrammarExplorer: React.FC<State> = () => {
         <MicrogrammerDefinition />
     </React.Fragment>;
 }
+
+MicrogrammarExplorer.displayName = "MicrogrammarExplorer";

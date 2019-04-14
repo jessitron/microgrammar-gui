@@ -9,3 +9,5 @@ export const MicrogrammerDefinition: React.FC<State> = () => {
         <MicrogrammarTerms />
     </React.Fragment>;
 }
+
+MicrogrammerDefinition.displayName = "MicrogrammerDefinition";
