@@ -1,5 +1,8 @@
 body {
     margin: 0px;
+    background: rgba(76, 185, 137, 1);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: white;
 }
 
 header {
@@ -8,13 +11,8 @@ header {
     padding: 1em;
     font-size: 2em;
     margin: 0px;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    color: white;
-    background: rgb(34,106,106);
-    background: linear-gradient(
-        0deg, 
-        rgba(76,185,137,1) 0%, 
-        rgba(34,106,106,1) 100%);
+    background: rgb(34, 106, 106);
+    background: linear-gradient( 0deg, rgba(76, 185, 137, 1) 0%, rgba(34, 106, 106, 1) 100%);
 }
 
 header a {
@@ -29,9 +27,30 @@ header a {
 .title2 {
     grid-column: 2 / -1;
     grid-row: 1/1;
-    justify-self:right;
+    justify-self: right;
 }
 
 .title-logo {
     height: 2em;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: "phrase terms" "txt    tree";
+}
+
+#main div {
+    background: rgba(28, 38, 58, 1);
+    padding: 0.2em;
+}
+
+#main .mg-phrase {
+    grid-area: phrase;
+}
+
+#main .mg-terms {
+    grid-area: terms;
 }
