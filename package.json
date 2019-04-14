@@ -11,25 +11,22 @@
     "clean": "rimraf  server.js server.js.map \"app/**/*.js{,.map}}\" "
   },
   "dependencies": {
-    "@atomist/microgrammar": "^1.2.0-matchReportIterator.20190222200743",
-    "@material-ui/core": "^3.9.2",
+    "@atomist/microgrammar": "^1.2.0",
     "codemirror": "^5.42.2",
-    "express": "^4.16.3",
-    "jsx-loader": "^0.13.2",
     "lodash": "^4.17.11",
-    "react": "^16.8.3",
+    "react": "^16.8.6",
     "react-codemirror2": "^5.1.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.6",
     "react-json-view": "^1.19.1",
-    "stringify-tree": "^1.0.1",
-    "style-loader": "^0.23.1"
+    "stringify-tree": "^1.0.1"
   },
   "devDependencies": {
     "@types/codemirror": "0.0.71",
     "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.18",
     "@types/react": "^16.8.4",
-    "css-loader": "^2.1.0",
+    "@types/react-dom": "^16.8.4",
+    "jsx-loader": "^0.13.2",
     "rimraf": "^2.6.3",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3333",
