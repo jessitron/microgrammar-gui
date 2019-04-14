@@ -3,6 +3,7 @@ body {
     background: rgba(76, 185, 137, 1);
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     color: white;
+    box-sizing: border-box;
 }
 
 header {
@@ -34,10 +35,14 @@ header a {
     height: 2em;
 }
 
+/*
+ * The main grid! so exciting
+ */
+
 #main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 50px;
     grid-auto-rows: minmax(100px, auto);
     grid-template-areas: "phrase terms" "txt    tree";
 }
@@ -53,4 +58,16 @@ header a {
 
 #main .mg-terms {
     grid-area: terms;
+}
+
+.codemirror {
+    min-height: 5em;
+    width: 100%;
+    border: solid red 4px;
+    box-sizing: border-box;
+    /* for some reason it doesn't get box-sizing from the body style, it's grayed out in chrome */
+}
+
+.CodeMirror pre {
+    color: white;
 }
