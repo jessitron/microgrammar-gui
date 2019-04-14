@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import { State } from '../State';
+import React from 'react';
+import { MicrogrammarDefinitionProps, WrappedMicrogrammarExploration } from '../Prop';
 import { MicrogrammarPhrase } from './MicrogrammarPhrase';
 import { MicrogrammarTerms } from './MicrogrammarTerms';
 
-export const MicrogrammerDefinition: React.FC<State> = () => {
+export const MicrogrammarDefinition: React.FC<WrappedMicrogrammarExploration> = (props) => {
+
     return <React.Fragment>
-        <MicrogrammarPhrase />
+        <MicrogrammarPhrase appState={props.appState} updateFunctions={props.updateFunctions} />
         <MicrogrammarTerms />
     </React.Fragment>;
 }
 
-MicrogrammerDefinition.displayName = "MicrogrammerDefinition";
+MicrogrammarDefinition.displayName = "MicrogrammarDefinition";
+
+export const init: MicrogrammarDefinitionProps = {
+    phrase: "banana",
+}
